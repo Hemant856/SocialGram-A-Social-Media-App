@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+
+        <link rel="stylesheet" href="/css/layout.css">
+        <!-- //to extract style from body and placed here  -->
+        <%- style %>
+    </head>
+    <body>
+       <!-- //Header included -->
+        <%- include('_header'); %>
+
+        <!-- This contain the varialble part -->
+        <%- body %>
+        
+        <!-- Footer Included -->
+         <%- include('_footer'); %>
+        <!-- //to extract script from body and placed here  -->
+         <%- script%>
+    </body>
+</html>
