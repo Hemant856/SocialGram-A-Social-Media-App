@@ -1,3 +1,19 @@
-<footer>
+<!-- <footer>
     Page Footer
-</footer>
+</footer> -->
+
+<footer>
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-secondary">
+        <a class="navbar-brand" href="#">@Hemant Raj</a>
+      
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+              <%if(locals.user){%>
+            <li class="nav-item active">
+              <a class="nav-link" href="/users/profile"> <%=user.name%> <span class="sr-only">(current)</span></a>
+            </li>
+            <%}%>
+          </ul>
+        </div>
+      </nav>
+  </footer>
