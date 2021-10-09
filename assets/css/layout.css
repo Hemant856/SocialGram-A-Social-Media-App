@@ -1,5 +1,15 @@
+* {
+  font-family: cursive;
+}
+
 body {
-  margin: 0;
-  /* text-align: center; */
-  background-color: white;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+body #layout-main {
+  min-height: 100vh;
+  width: 100%;
+  display: inline-block;
 }

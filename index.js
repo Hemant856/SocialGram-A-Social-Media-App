@@ -42,7 +42,7 @@ app.set('views', './views');
 
 //Mongo store is used to store the session cookie in th db
 app.use(session({
-    name: 'codeial',
+    name: 'SocialGram',
     //TODO change the secret before deployment in production
     secret:'somthing',
     saveUninitialized:false,
