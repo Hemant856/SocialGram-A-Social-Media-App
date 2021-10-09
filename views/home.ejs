@@ -40,7 +40,14 @@
                        <div class="post-comments-list">
                           <ul id="post-comments-<%= post._id%>">
                               <% for( comment of post.comments) { %>
+                                <li>
                                  <p>
+                                    <!-- user will only be able to delete his own comments -->
+                                    <% if(locals.user && locals.user.id == comment.user.id) { %>
+                                       <small>
+                                          <a href="/comments/destroy/<%= comment.id%>">Del</a>
+                                       </small>
+                                       <% } %>
                                     <%= comment.content%>
                                     <br>
                                     <small>
@@ -48,6 +55,7 @@
                                     </small>
                                  </p>
                                  <% } %>
+                                </li>
                           </ul>
 
                        </div>
