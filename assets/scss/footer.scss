@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap');
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins";
+    margin: 0;
+    display: grid;
+    font-size: 14px;
+}
+
+footer {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 50px;
+    color: #fff;
+    background-color: #011c39;
+}
+
+.footer>* {
+    flex: 1 100%;
+}
+
+.footer-left {
+    margin-right: 1.25em;
+    margin-bottom: 2em;
+}
+
+.footer-left img {
+    width: 50%;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer li {
+    line-height: 2em;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer-right {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.footer-right>* {
+    flex: 1 100%;
+    margin-right: 1.25em;
+}
+
+.box a {
+    color: #999;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #999;
+    padding-top: 50PX;
+}
+
+.footer-left p {
+    padding-right: 20%;
+    color: #999;
+}
+
+.socials a {
+    background: #264a62;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.socials a i {
+    color: #e7f2f4;
+    padding: 10px 12px;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 600px) {
+    .footer-right>* {
+        flex: 1;
+    }
+    .footer-left {
+        flex: 1 0px;
+    }
+    .footer-right {
+        flex: 2 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 15px;
+    }
+}

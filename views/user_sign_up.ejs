@@ -1,13 +1,72 @@
-<h1>
-    Sign Up
-</h1>
+<link rel="stylesheet" href="/css/sign_up.css">
 
-<form action="/users/create" method="POST">
-   <input type="text" name="name" placeholder="Your Name" required>
-   <input type="email" name="email" placeholder="Your Email" required>
-   <input type="password" name="password" placeholder="password" required>
-   <input type="password" name="confirm_password" placeholder="Confirm password" required>
-   <input type="submit" value="Sign Up">
+<section>
+    <div class="container">
+        <div class="user singinBx">
+            <div class="imgBx">
+                <img src="/images/image-1.jpg" alt="">
+            </div>
+            <div class="formBx">
+                <form action="/users/create" method="POST">
+                    <h2>Create an Account</h2>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="password" name="password" placeholder="Your Password" required>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <input type="submit" value="Sign Up">
+                    <p class="signup">Don't have an account ?
+                        <a href="#" onclick="toggleForm();">Sign Up</a>
+                    </p>
+                    <h3>Or connect with</h3>
+                    <ul class="sci">
+                        <li>
+                            <a href=""><i class="fab fa-google"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-facebook-f" style="padding: 12px 13px;"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-github"></i></a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="user singupBx">
 
+            <div class="formBx">
+                <form action="/users/create-session" method="POST">
+                    <h2>Sign In</h2>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Sign In">
+                    <p class="signup"> Already have an account ?
+                        <a href="#" onclick="toggleForm();">Sign In</a>
+                    </p>
+                    <h3>Or connect with</h3>
+                    <ul class="sci">
+                        <li>
+                            <a href=""><i class="fab fa-google"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-facebook-f" style="padding: 12px 13px;"></i></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fab fa-github"></i></a>
+                        </li>
+                    </ul>
+                </form>
 
-</form>
+            </div>
+            <div class="imgBx">
+                <img src="/images/image-2.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    function toggleForm() {
+        var container = document.querySelector('.container');
+        container.classList.toggle('active');
+    }
+</script>
