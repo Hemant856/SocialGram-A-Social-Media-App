@@ -28,7 +28,8 @@ let create_post = () => {
 
                 noty_flash('success', 'Post created Successfully!');
                 $('textarea')[0].value = ""; /* clearing the text area */
-
+              
+                deletePost($(' .delete-post-button', new_post));
 
             },
 
@@ -103,7 +104,138 @@ let new_post_dom = (data) => {
                     </div>
             </div>
         </div>`)
+    }
+    // method to delete a post 
+
+let deletePost = (deleteLink) => {
+    $(deleteLink).click((event) => {
+        event.preventDefault();
+
+        $.ajax({
+            type: 'GET',
+            url: $(deleteLink).prop('href'),
+            success: (data) => {
+                $(`#post_${data.data.post_id}`).remove();
+                noty_flash('success', 'Post deleted Successfully')
+
+
+
+            },
+            error: (error) => {
+                console.log(error.responseText);
+                noty_flash('error', 'Error in deleting the Post!')
+
+            }
+        })
+    })
+
+}
+
+let apply_dynamic_delete_to_existing_posts = function() {
+    for (let link of $('.delete-post-button')) {
+        deletePost(link);
+    }
 }
 
 
+
+apply_dynamic_delete_to_existing_posts();
 create_post();
+
+///////////********* */
+// comment functionality
+
+let comment_creator = function(new_comment_form) {
+   
+    new_comment_form.submit((event) => {
+        event.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: '/comments/create',
+            data: new_comment_form.serialize(),
+            success: (data) => {
+                console.log(data);
+                let new_comment = new_comment_dom(data.data);
+                $(`#post-comments-${data.data.post_id}`).prepend(new_comment);
+                $(`#post_${data.data.post_id} .new-comment-form input`)[0].value = "";
+                noty_flash('success', 'Comment posted Successfully');
+                delete_comment($(' .delete-comment-button', new_comment));
+
+
+
+            },
+            error: (error) => {
+                noty_flash('error', 'Error in posting comment')
+                console.log(error.responseText);
+            }
+        })
+    })
+}
+
+// created comment dom
+
+let new_comment_dom = (data) => {
+    return $(`<div id="comment_id_${data.comment_id}">
+    <!-- user will only be able to delete his own comments -->
+        <div class="dropdown">
+            <a class="float-right" href="" id="more_options_${data.comment_id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="more_options_${data.comment_id}">
+                <a class="dropdown-item delete-comment-button" href="/comments/destroy/${data.comment_id}"><i
+                    class="fas fa-trash-alt"></i>
+                Delete</a>
+            </div>
+        </div>
+            <b>${data.user_name}</b>
+            <p>
+            ${data.comment_content}
+            </p>
+            <div class="align-middle action-buttons">
+                <!-- like button on post -->
+                <!-- comment button on post -->
+                <a data-toggle="collapse" href="#collapse${data.comment_id}" role="button" aria-expanded="false" aria-controls="collapse${data.comment_id}"><i class="far fa-comment"></i></a>&nbsp
+                <!-- send button on post -->
+                <a href=""><i class="fas fa-paper-plane"></i></a>
+            </div>
+            <hr>
+</div>`)
+}
+
+let delete_comment = (deleteLink) => {
+    $(deleteLink).click((event) => {
+        event.preventDefault();
+
+        $.ajax({
+            type: 'GET',
+            url: $(deleteLink).prop('href'),
+            success: (data) => {
+                $(`#comment_id_${data.data.comment_id}`).remove();
+                noty_flash('success', 'Comment deleted Successfully')
+
+            },
+            error: (error) => {
+                console.log(error.responseText)
+                noty_flash('error', 'Error in deleting the Comment!')
+
+            }
+        })
+    })
+}
+
+let apply_dynamic_comment_delete_to_existing_comments = (link) => {
+    delete_comment(link);
+}
+
+
+for (let link of $('.delete-comment-button')) {
+    apply_dynamic_comment_delete_to_existing_comments(link);
+}
+
+/* applying dynamic comment creation on all the posts of the page */
+
+
+for (let new_comment_form of $('.new-comment-form')) {
+    comment_creator($(new_comment_form));
+}
