@@ -17,9 +17,7 @@
               <% if(locals.user){ %>
                   <li class="nav-item">
                       
-                      <a class="nav-link" href=""><img class="profile-img" src="/images/image-2.jpg" alt="" style="height: 32px; width:40px;border-radius:50%;">
-                        <span class="sr-only">(current)</span>
-                    </a>
+                    <a class="nav-link" href=""><img src="<%= locals.user.avatar %>" class="profile-img" alt="" style="height: 40px; width:40px;border-radius:50%; margin-top: -9px;"><span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item-1 active mr-2">
                       <a class="nav-link" href="/users/profile/<%=user.id %>">

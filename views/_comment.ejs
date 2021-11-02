@@ -15,10 +15,18 @@
        <%}%>
 
 
-           <b><%=comment.user.name%></b>
-           <p>
-               <%=comment.content%>
-           </p>
+       <div class="comment-title">
+        <div class="comment-user-profile">
+            <img src="<%= comment.user.avatar%>" alt="">
+        </div>
+
+        <div class="comment-user-name">
+            <b><%=comment.user.name%></b>
+            <p class="comment-content">
+                <%=comment.content%>
+            </p>
+        </div>
+    </div>
 
            <div class="align-middle action-buttons">
                <!-- like button on post -->

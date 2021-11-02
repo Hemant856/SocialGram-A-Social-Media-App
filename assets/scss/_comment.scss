@@ -1,0 +1,22 @@
+.comment-title {
+    display: flex;
+    flex-direction: row;
+    .comment-user-profile {
+        border: 1px solid cornsilk;
+        img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    }
+    .comment-user-name {
+        margin-left: 8px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 800;
+        color: rgb(46, 46, 252);
+        .comment-content {
+            color: black;
+        }
+    }
+}

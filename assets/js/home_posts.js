@@ -58,7 +58,7 @@ let new_post_dom = (data) => {
         
                         <div class="card-title">
                             <div class="post-user-profile">
-                                <img class="profile-img" src="/images/image-1.jpg" alt="">
+                                <img class="profile-img" src="${data.avatar}" alt="">
         
                             </div>
                             <div class="post-user-name">

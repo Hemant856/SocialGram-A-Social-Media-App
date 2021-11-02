@@ -17,6 +17,7 @@ module.exports.create = async function (req, res) {
                     post_content: post.content,
                     updatedAt: post.updatedAt,
                     createdAt: post.createdAt,
+                    avatar: post.user.avatar,
                 },
                 message: 'Post Created!'
             });
