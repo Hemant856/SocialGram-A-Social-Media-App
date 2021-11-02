@@ -24,3 +24,7 @@
 .comment-title .comment-user-name .comment-content {
   color: black;
 }
+
+.align-middle {
+  margin-left: 4px;
+}

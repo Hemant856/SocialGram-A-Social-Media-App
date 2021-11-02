@@ -28,6 +28,7 @@ module.exports.create = async function (req, res) {
                     user_name: comment.user.name,
                     comment_content: comment.content,
                     post_id: comment.post._id,
+                    avatar: comment.user.avatar,
                 },
                 message: 'Comment Created!',
             })

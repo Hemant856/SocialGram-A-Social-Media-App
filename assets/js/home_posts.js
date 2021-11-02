@@ -188,10 +188,19 @@ let new_comment_dom = (data) => {
                 Delete</a>
             </div>
         </div>
+        <div class="comment-title">
+        <div class="comment-user-profile">
+            <img src="${data.avatar}" alt="">
+        </div>
+        <div class="comment-user-name">
             <b>${data.user_name}</b>
-            <p>
+            <p class="comment-content">
             ${data.comment_content}
             </p>
+        </div>
+    </div>
+            <b></b>
+            <p>
             <div class="align-middle action-buttons">
                 <!-- like button on post -->
                 <!-- comment button on post -->
