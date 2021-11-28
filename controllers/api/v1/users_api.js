@@ -15,14 +15,14 @@ module.exports.createSession = async function(req, res){
         return res.json(200, {
             message: 'Sign in successful, here is your token please keep it safe!',
             data: {
-                token: jwt.sign(user.toJSON(), 'SocialGram', {expiresIn : 1000})
+                token: jwt.sign(user.toJSON(), 'SocialGram', {expiresIn : 100000})
             }
         })
 
     }catch(err){
      console.log('*******', err);
      return res.json(508, {
-         message: "Invalid Server Error"
+         message: "Invalid Server Error!!"
      });
   
     }
