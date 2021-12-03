@@ -1,26 +1,77 @@
-<link rel="stylesheet" href="/css/user_profile.css">
-<img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" width="100">
-      
-
-      <% if(user.id == profile_user.id) { %>
-        <!-- is user matches then show form -->
-       <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
-        <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name%>" required>
-        <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email%>" required>
-        <input type="file" name="avatar" placeholder="Profile Picture">
-        <input type="submit" value="update">
-    </form>
+<link rel="stylesheet" href="/css/user_profile.css" />
 
 
+<div class="container mt-3">
+    <div class="row">
+        <section class="col-sm-4 pb-2 pt-2">
+            <!-- profile picture -->
+            <div id="profile-picture" class="ml-auto mr-auto mt-2 mb-2">
+                <img src="<%=profile_user.avatar%>" alt="<%= profile_user.name%>">
+            </div>
+            <!-- name -->
+            <div class="text-center">
+                <h3>
+                    <%= profile_user.name.charAt(0).toUpperCase() + profile_user.name.slice(1)%>
+                </h3>
+            </div>
+            <!-- update credentials -->
+            <div class="text-center">
+                <% if(user.id == profile_user.id){ %>
+                    <!-- if user matches with profile then only can change their name -->
+                    <button type="button" class="btn btn-warning mt-3" data-toggle="modal" data-target="#exampleModalCenter">
+                            Update Credentials
+                        </button>
+                    <!-- modal -->
+                    <div class="modal fade" tabindex="-1" role="dialog" id="exampleModalCenter" aria-labelledby="exampleModalCenterTitle">
+                        <div class="modal-dialog modal-dialog-center">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Update Credentials</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                                <!-- form for update credentials -->
+                                <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="name">New Name</label>
+                                            <input type="text" name="name" class="form-control" id="name" aria-describedby="name" placeholder="Your Name" value="<%= profile_user.name %>" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">New Email</label>
+                                            <input type="email" name="email" class="form-control" id="email" aria-describedby="email" placeholder="Your New Email" value="<%= profile_user.email %>" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="avatar">Upload Profile Picture</label>
+                                            <input type="file" name="avatar" class="from-control-file" id="avatar">
+                                        </div>
+                                    </div>
+                                    <!-- modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <button type="submit" class="btn btn-success">
+                                            Update
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- **************************ending******************************** -->
+                    <%}%>
+
+            </div>
+        </section>
+
+        <section class="col-sm-8 pb-2 pt-2">
 
 
-        <% } else { %>
-        <!-- else show only the profile info -->
-        <p><%= profile_user.name%></p>
-        <p><%= profile_user.email%></p>
-
-        <% } %>     
-        
+        </section>
+    </div>
+</div> 
         
 
 

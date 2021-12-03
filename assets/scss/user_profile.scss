@@ -1,3 +1,34 @@
 body{
     background-color: rgb(127, 209, 219);
 }
+
+body {
+    margin: 0;
+    padding: 0
+}
+
+body section {
+    border: 1px solid rgb(17, 7, 7)
+}
+
+body section #profile-picture {
+    width: 250px;
+    height: 340px;
+    border-radius: 5%
+}
+
+body section #profile-picture img {
+    border-radius: inherit;
+    width: 100%;
+    height: 100%
+}
+
+body section #add-friend {
+    background-color: #7952b3;
+    border-color: #7952b3
+}
+
+body section #add-friend:hover {
+    background-color: #6339a1;
+    border-color: #6339a1
+}
