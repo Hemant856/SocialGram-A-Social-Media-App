@@ -108,6 +108,13 @@ section .container .user .formBx form .signup {
   color: #555;
   text-transform: uppercase;
   font-weight: 300;
+  margin-top: -10px;
+}
+
+section .container .user .formBx .forgot-password {
+  margin-top: 7px;
+  font-size: 15px;
+  color: black;
 }
 
 section .container .user .formBx form .signup a {
