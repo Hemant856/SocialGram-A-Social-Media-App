@@ -25,6 +25,9 @@ let create_post = () => {
                 let new_post = new_post_dom(data.data);
                 $('#posts-container').prepend(new_post);
 
+                comment_creator($(`#post_${data.data.post_id} .new-comment-form`));
+
+                add_like_button_functionality($(`#like-${data.data.post_id}`));   
 
                 noty_flash('success', 'Post created Successfully!');
                 $('textarea')[0].value = ""; /* clearing the text area */
@@ -78,14 +81,19 @@ let new_post_dom = (data) => {
                         <div class="card-text mt-2"><small style="font-weight: 600;">${data.updatedAt.toString().substr(0, 10)}</small></div>
                         <hr>
         
-                        <div class="align-middle action-buttons">
+                       
                             <!-- like button on post -->
-        
+                             
+                            <!-- like button on post -->
+                            <a href="/likes/toggle/?id=${data.post_id}&type=Post" id="like-${data.post_id}" class="like-buttons"
+            data-toggle="false" data-likes="0"><i class="far fa-heart"></i> <span>0</span></a>
+            &nbsp&nbsp&nbsp
+
                             <!-- comment button on post -->
                             <a data-toggle="collapse" href="#collapse_${data.post_id}" role="button" aria-expanded="false" aria-controls="collapse${data.post_id}"><i class="far fa-comment"></i></a>&nbsp&nbsp&nbsp
                             <!-- send button on post -->
                             <a href=""><i class="fas fa-paper-plane"></i></a>
-                        </div>
+                        
         
         
             </div>
@@ -160,6 +168,7 @@ let comment_creator = function(new_comment_form) {
                 $(`#post-comments-${data.data.post_id}`).prepend(new_comment);
                 $(`#post_${data.data.post_id} .new-comment-form input`)[0].value = "";
                 noty_flash('success', 'Comment posted Successfully');
+                add_like_button_functionality($(`#like-${data.data.comment_id}`))
                 delete_comment($(' .delete-comment-button', new_comment));
 
 
@@ -203,6 +212,11 @@ let new_comment_dom = (data) => {
             <p>
             <div class="align-middle action-buttons">
                 <!-- like button on post -->
+                 
+                <!-- like button on post -->
+                <a href="/likes/toggle/?id=${data.comment_id}&type=Comment" id="like-${data.comment_id}" class="like-buttons"
+                data-likes="0" data-toggle="false"><i class="far fa-heart"></i> <span>0</span> </a> &nbsp
+
                 <!-- comment button on post -->
                 <a data-toggle="collapse" href="#collapse${data.comment_id}" role="button" aria-expanded="false" aria-controls="collapse${data.comment_id}"><i class="far fa-comment"></i></a>&nbsp
                 <!-- send button on post -->
@@ -247,4 +261,33 @@ for (let link of $('.delete-comment-button')) {
 
 for (let new_comment_form of $('.new-comment-form')) {
     comment_creator($(new_comment_form));
+}
+
+/* like button functionality */
+
+let add_like_button_functionality = (button) => {
+    /* for (let like_button of $('.like-buttons')) */
+    button.click(function(event) {
+        event.preventDefault();
+        $.ajax({
+                type: 'GET',
+                url: button.attr('href')
+            })
+            .done(function(data) {
+                let likes_count = button.attr('data-likes');
+                console.log(likes_count);
+                if (data.data.deleted) {
+                    likes_count = parseInt(likes_count) - 1;
+                } else {
+                    likes_count = parseInt(likes_count) + 1;
+                }
+                button.attr('data-likes', likes_count);
+                button.find('span').html(likes_count);
+            })
+            .fail(function(error) {
+                if (error) {
+                    console.log('error in completing the ajax request');
+                }
+            })
+    })
 }

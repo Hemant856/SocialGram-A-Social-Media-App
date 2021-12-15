@@ -3,6 +3,7 @@ const Post = require('../models/post');
 const commentsMailer = require('../mailers/comments_mailers');
 const queue = require('../config/kue')
 const commentEmailWorker = require('../workers/comment_email_worker');
+const Like = require('../models/like');
 
 module.exports.create = async function (req, res) {
 
@@ -63,6 +64,9 @@ module.exports.destroy = async function (req, res) {
         let comment = await Comment.findById(req.params.id);
         if (comment.user == req.user.id) {
             let postId = comment.post;
+
+              // change :: destroy the associate likes for this comment
+              await Like.deleteMany({ likeable: comment._id, onModel: 'Comment' });
 
             comment.remove();
 
