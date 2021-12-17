@@ -1,18 +1,44 @@
 // This will control many users
 
 const User = require('../models/user');
+const Friendship = require('../models/friendship');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
 module.exports.profile = function(req, res){
-  User.findById(req.params.id, function(err, user){
-       // res.end('<h1> User Profile</h1>');
-    return res.render('user_profile',{
-      title: "User Profile",
-      profile_user: user
-   }); 
-  });
+  User.findById(req.params.id, function(error, user) {
+
+    if (error) {
+        console.log('error in finding the user profile!');
+        return;
+    }
+
+    let are_friends = false;
+
+    Friendship.findOne({
+        $or: [{ from_user: req.user._id, to_user: req.params.id },
+            { from_user: req.params.id, to_user: req.user._id }
+        ]
+    }, function(error, friendship) {
+        if (error) {
+            console.log('There was an error in finding the friendship', error);
+            return;
+        }
+        if (friendship) {
+            are_friends = true;
+        }
+
+
+        return res.render('user_profile', {
+            user_name: 'Ayush gupta',
+            title: 'User Profile',
+            profile_user: user,
+            are_friends: are_friends
+
+        });
+    });
+});
     
 }
 
