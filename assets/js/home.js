@@ -46,3 +46,8 @@ let add_click_action_to_like_button = function() {
     }
 }
 add_click_action_to_like_button()
+
+$('#friends-container .badge').click(function(event) {
+    event.preventDefault();
+    $('#user-chatbox').toggleClass('d-none');
+})
