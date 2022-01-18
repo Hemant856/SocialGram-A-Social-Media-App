@@ -1,24 +1,25 @@
 #user-chatbox {
+  left: 0%;
   position: fixed;
   box-sizing: border-box;
-  right: 0.5%;
   bottom: 0.5%;
-  border: 1px solid #9b9b9b;
-  height: 60%;
+  background-color: #423e3e;
+  border: 1px solid #e6baba;
+  height: 80%;
   opacity: 0.95;
-  width: 25vw;
+  width: 30vw;
   border-radius: 20px 20px 0px 0px;
 }
 
 #user-chatbox #is_online {
   border-radius: 50%;
-  background-color: #7cc412;
+  background-color: #5a9206;
   width: 9px;
   height: 9px;
 }
 
 #user-chatbox .messages-container {
-  height: 67%;
+  height: 60%;
   overflow-y: scroll;
 }
 
@@ -37,7 +38,7 @@
 }
 
 #user-chatbox .messages-container #message-list .other-message {
-  background-color: blue;
+  background-color: #50c9b9;
   border-radius: 20px;
   width: min-content;
   padding: 7px;
@@ -48,7 +49,7 @@
 #user-chatbox .messages-container #message-list .self-message {
   width: min-content;
   color: black;
-  background-color: white;
+  background-color: #a92ec2;
   border-radius: 20px;
   padding: 7px;
   margin-left: auto;

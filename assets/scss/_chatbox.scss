@@ -1,21 +1,23 @@
 #user-chatbox {
+    left: 0%;
     position: fixed;
     box-sizing: border-box;
-    right: 0.5%;
+    // right: 0.5%;
     bottom: 0.5%;
-    border: 1px solid rgb(155, 155, 155);
-    height: 60%;
+    background-color: rgb(66, 62, 62);
+    border: 1px solid rgb(230, 186, 186);
+    height: 80%;
     opacity: 0.95;
-    width: 25vw;
+    width: 30vw;
     border-radius: 20px 20px 0px 0px;
     #is_online {
         border-radius: 50%;
-        background-color: rgb(124, 196, 18);
+        background-color: rgb(90, 146, 6);
         width: 9px;
         height: 9px;
     }
     .messages-container {
-        height: 67%;
+        height: 60%;
         overflow-y: scroll;
         ///////////////////////////////////////////////////////////////////////////////////////
         #message-list {
@@ -30,7 +32,7 @@
                 margin-bottom: 7px;
             }
             .other-message {
-                background-color: rgb(0, 0, 255);
+                background-color: rgb(80, 201, 185);
                 border-radius: 20px;
                 width: min-content;
                 padding: 7px;
@@ -40,7 +42,7 @@
             .self-message {
                 width: min-content;
                 color: black;
-                background-color: rgb(255, 255, 255);
+                background-color: rgb(169, 46, 194);
                 border-radius: 20px;
                 padding: 7px;
                 margin-left: auto;

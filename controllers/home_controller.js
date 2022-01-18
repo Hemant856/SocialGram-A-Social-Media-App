@@ -60,6 +60,12 @@ module.exports.home = async function (req, res) {
   }
 
 
+}
+
+module.exports.aboutUs = function(req, res) {
+    return res.render('about_us', {
+        title: "SocialGram | About Us"
+    })
 
 }
 

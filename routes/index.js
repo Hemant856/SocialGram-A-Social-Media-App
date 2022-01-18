@@ -11,6 +11,7 @@ const api = require('./api')
 console.log('Router loaded');
 
 router.get('/', homeController.home);
+router.get('/about_us', homeController.aboutUs);
 router.use('/users', require('./users'));
 
 router.use('/posts', require('./posts'));
