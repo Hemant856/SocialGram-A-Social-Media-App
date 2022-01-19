@@ -1,3 +1,7 @@
+.body {
+  background: #98f5f0;
+}
+
 .card-title {
   display: flex;
   flex-direction: row;
@@ -5,7 +9,7 @@
 }
 
 .card-title .post-user-profile {
-  border: 1px solid cornsilk;
+  border: 1px solid #44e4f0;
   border-radius: 50%;
 }
 

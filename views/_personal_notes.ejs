@@ -1,0 +1,37 @@
+
+ <% if(locals.user && locals.user.id==notes.user){ %>
+<div class="card w-100 mt-3 mb-2" id="post_<%=post._id%>">
+    <div class="card-body">
+ 
+        <!-- options to delete a post and stuff -->
+       
+            <div class="dropdown">
+                <a class="float-right" href=""  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="more_options<%=post._id%>">
+                    <a class="dropdown-item delete-post-button" href=""><i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                </div>
+            </div>
+           
+            
+          
+ 
+            <p class="card-text">
+                <%=notes.content%>
+            </p>
+            <div class="card-text mt-2"><small style="font-weight: 600;"><%=post.user.updatedAt.toString().substr(0, 15)%></small></div>
+            <hr>
+
+            <div class="align-left action-buttons">
+                
+            </div>
+
+                
+ 
+ 
+    </div>
+  
+ </div>
+ <%}%>

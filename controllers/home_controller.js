@@ -1,6 +1,7 @@
 const post = require('../models/post');
 const User = require('../models/user');
 const Friendship = require('../models/friendship')
+const Notes = require('../models/note')
 
 module.exports.home = async function (req, res) {
   // console.log(req.cookies);
@@ -13,6 +14,7 @@ module.exports.home = async function (req, res) {
   // })
   try {
     // Populte the user of each post
+    let notes = await Notes.find({});
     let posts = await post.find({})
     .sort('-createdAt')
       .populate('user')
@@ -52,7 +54,8 @@ module.exports.home = async function (req, res) {
       title: "SocialGram | Home",
       posts: posts,
       all_users: users,
-      friends: friends
+      friends: friends,
+      personal_notes : notes
     });
   } catch(err) {
      console.log('Error', err);

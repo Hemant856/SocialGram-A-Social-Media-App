@@ -1,13 +1,13 @@
-.body{
-    background: rgb(152, 245, 240);
+body{
+    background-color: rgb(127, 209, 219);
 }
 .card-title {
-    // background: rgb(152, 245, 240);
+   
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: left;
     .post-user-profile {
-        border: 1px solid rgb(68, 228, 240);
+        border: 1px solid cornsilk;
         border-radius: 50%;
         img {
             height: 40px;

@@ -1,10 +1,37 @@
 <div class="container-fluid">
+   
    <div class="row">
-       <section class="col-sm-3 mt-4">
+    <section class="col-sm-3 mt-4">
+        <h4>Personal Notes</h4>
+     <%if(locals.user){%>
+         <form action="/notes/create" id="new-post-form" method="POST">
+             <div>
+                
+                 <div class="form-group mb-1">
+                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols=1 name="content" placeholder="hii" required></textarea>
+                 </div>
+                 <div class="form-group">
+                     <button type="submit" class="btn btn-primary mb-2 float-right">submit</button>
+                 </div>
+             </div>
+             
+         </form>
+         <%}%>
 
-       </section>
+         <div id="posts-container">
+             <% itr=0; for(notes of locals.personal_notes){ %>
+                 <%- include('_personal_notes') -%>
+                     <%itr++;}%>
+         </div>
+         
+    </section>
+    
+
+
        <section id="feed-posts" class="col-sm-6 mt-4">
            <%if(locals.user){%>
+           
+
                <form action="/posts/create" id="new-post-form" method="POST">
                    <div class="form-group mb-1">
                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols=1 name="content" placeholder="What's on your mind?" required></textarea>

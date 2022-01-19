@@ -1,4 +1,8 @@
 body {
+  background-color: #7fd1db;
+}
+
+body {
   font-family: 'Lato', sans-serif;
 }
 
@@ -11,7 +15,7 @@ body {
 }
 
 .card {
-  background: #fffbea;
+  background: #f0faf9;
   box-shadow: 0px 5px 10px 1px #dbdbdb;
   transition: all ease-in-out 0.2s;
 }
@@ -30,6 +34,10 @@ body {
   overflow: scroll;
 }
 
+.row section:nth-child(3) #friends-container .list-group-item {
+  background: #f0faf9;
+}
+
 .row section:nth-child(3) #friends-container::-webkit-scrollbar {
   display: none;
 }
@@ -44,7 +52,7 @@ body {
 }
 
 .row section:nth-child(3) #all-users-container .list-group-item {
-  background: #fffbea;
+  background: #f0faf9;
 }
 
 .row section:nth-child(3) a:hover {
