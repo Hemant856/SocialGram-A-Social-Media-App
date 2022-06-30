@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(127, 209, 219);
+    background-color: #FFFFFF;
 }
 
 body {
@@ -7,14 +7,14 @@ body {
     padding: 0
 }
 
-body section {
-    border: 1px solid rgb(17, 7, 7)
-}
+// body section {
+//     border: 1px solid rgb(17, 7, 7)
+// }
 
 body section #profile-picture {
     width: 250px;
     height: 340px;
-    border-radius: 5%
+    border-radius: 10%
 }
 
 body section #profile-picture img {

@@ -21,16 +21,16 @@
                    </div>
                    <div class="post-user-name">
                        <%=post.user.name%>
-                           <small class="post-time"><%=post.user.updatedAt.toString().substr(15,6)%></small>
-
+                           <small class="post-time"><%=post.user.updatedAt.toString().substr(15,6)%>  <%=post.user.updatedAt.toString().substr(0, 15)%></small>
 
                    </div>
                </div>
+               <hr>
                <p class="card-text">
                    <%=post.content%>
                </p>
-               <div class="card-text mt-2"><small style="font-weight: 600;"><%=post.user.updatedAt.toString().substr(0, 15)%></small></div>
-               <hr>
+               <!-- <div class="card-text mt-2"><small style="font-weight: 600;"><%=post.user.updatedAt.toString().substr(0, 15)%></small></div>
+               <hr> -->
 
                <div class="align-middle action-buttons">
                    <!-- like button on post -->

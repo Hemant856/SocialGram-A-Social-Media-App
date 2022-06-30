@@ -31,7 +31,7 @@ module.exports.profile = function(req, res){
 
 
         return res.render('user_profile', {
-            user_name: 'Ayush gupta',
+            user_name: 'Hemant Raj',
             title: 'User Profile',
             profile_user: user,
             are_friends: are_friends

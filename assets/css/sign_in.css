@@ -9,7 +9,7 @@
 section {
   position: relative;
   min-height: 100vh;
-  background: #fff;
+  background: #f0f2f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@ section .container {
   width: 800px;
   height: 500px;
   background: #fff;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 50px rgba(138, 223, 238, 0.363);
   overflow: hidden;
 }
 

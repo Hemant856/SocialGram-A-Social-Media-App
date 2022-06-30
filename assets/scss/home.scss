@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(127, 209, 219);
+    background-color: #FFFFFF;
 }
 
 body {
@@ -10,16 +10,19 @@ body {
     a {
         font-size: 20px;
         &:hover {
-            color: red;
+            color: #8B7FCB;
         }
     }
 }
-
+// .note{
+//     background-color: #8B7FCB;
+// }
 // change post div || Notes Div
 .card {
-    background: rgb(240, 250, 249);
-    box-shadow: 0px 5px 10px 1px rgb(219, 219, 219);
+    background: #FFFFFF;
+    box-shadow: 0px 5px 10px 1px #8B7FCB;
     transition: all ease-in-out 0.2s;
+    border-radius: 20px 20px 20px 20px;
     &:hover {
         box-shadow: 0px 0px 2px 1px rgb(240, 240, 240);
     }
@@ -32,7 +35,7 @@ body {
         overflow: hidden;
         #friends-container {
             .list-group-item {
-                background: rgb(240, 250, 249);
+                background: rgb(255, 255, 255);
             }
             height: $sub-container-height;
             overflow: scroll;
@@ -49,13 +52,13 @@ body {
                 ;
             }
             .list-group-item {
-                background: rgb(240, 250, 249);
+                background: rgb(255, 255, 255);
             }
         }
         a {
             &:hover {
                 text-decoration: none;
-                color: red;
+                color: #8B7FCB;;
             }
         }
         .badge {

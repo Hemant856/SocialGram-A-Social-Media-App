@@ -1,5 +1,5 @@
 .body {
-  background: #98f5f0;
+  background: #e7ecec;
 }
 
 .card-title {
@@ -9,7 +9,7 @@
 }
 
 .card-title .post-user-profile {
-  border: 1px solid #44e4f0;
+  border: 1px solid #dae5e6;
   border-radius: 50%;
 }
 

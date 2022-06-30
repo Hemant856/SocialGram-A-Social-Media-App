@@ -1,5 +1,5 @@
 body {
-  background-color: #7fd1db;
+  background-color: #FFFFFF;
 }
 
 body {
@@ -7,14 +7,10 @@ body {
   padding: 0;
 }
 
-body section {
-  border: 1px solid #110707;
-}
-
 body section #profile-picture {
   width: 250px;
   height: 340px;
-  border-radius: 5%;
+  border-radius: 10%;
 }
 
 body section #profile-picture img {

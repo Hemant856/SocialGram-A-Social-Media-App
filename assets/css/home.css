@@ -1,5 +1,5 @@
 body {
-  background-color: #7fd1db;
+  background-color: #FFFFFF;
 }
 
 body {
@@ -11,13 +11,14 @@ body {
 }
 
 .card-body a:hover {
-  color: red;
+  color: #8B7FCB;
 }
 
 .card {
-  background: #f0faf9;
-  box-shadow: 0px 5px 10px 1px #dbdbdb;
+  background: #FFFFFF;
+  box-shadow: 0px 5px 10px 1px #8B7FCB;
   transition: all ease-in-out 0.2s;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .card:hover {
@@ -35,7 +36,7 @@ body {
 }
 
 .row section:nth-child(3) #friends-container .list-group-item {
-  background: #f0faf9;
+  background: white;
 }
 
 .row section:nth-child(3) #friends-container::-webkit-scrollbar {
@@ -52,12 +53,12 @@ body {
 }
 
 .row section:nth-child(3) #all-users-container .list-group-item {
-  background: #f0faf9;
+  background: white;
 }
 
 .row section:nth-child(3) a:hover {
   text-decoration: none;
-  color: red;
+  color: #8B7FCB;
 }
 
 .row section:nth-child(3) .badge {

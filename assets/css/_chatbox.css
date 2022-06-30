@@ -1,11 +1,12 @@
 #user-chatbox {
-  left: 0%;
+  left: 1%;
+  margin-bottom: 0px;
   position: fixed;
   box-sizing: border-box;
   bottom: 0.5%;
-  background-color: #423e3e;
-  border: 1px solid #e6baba;
-  height: 80%;
+  background-color: #f8f6f6;
+  border: 1px solid #8b7fcb;
+  height: 62%;
   opacity: 0.95;
   width: 30vw;
   border-radius: 20px 20px 0px 0px;
@@ -19,6 +20,7 @@
 }
 
 #user-chatbox .messages-container {
+  background-color: #F0F2F5;
   height: 60%;
   overflow-y: scroll;
 }

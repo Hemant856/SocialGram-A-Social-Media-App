@@ -1,9 +1,10 @@
 const Notes = require('../models/note');
 
 console.log("controller");
+
 module.exports.create = function(req, res){
-    console.log("Created");
-    console.log(req.user);
+    // console.log("Created");
+    // console.log(req);
     Notes.create({
         content: req.body.content,
         user: req.user._id
